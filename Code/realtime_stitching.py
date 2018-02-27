@@ -1,5 +1,6 @@
 # USAGE
 # python realtime_stitching.py
+#Source: https://www.pyimagesearch.com/2016/01/25/real-time-panorama-and-image-stitching-with-opencv/
 
 # import the necessary packages
 from __future__ import print_function

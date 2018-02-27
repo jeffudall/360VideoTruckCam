@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Feb 18 10:00:59 2018
+
+@author: Etcyl
+"""
+
+import cv2
+
+cap = cv2.VideoCapture(0)
+cap1 = cv2.VideoCapture(1)
+
+while(True):
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+    ret1, frame1 = cap1.read()
+    
+
+    # Our operations on the frame come here
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    gray1 = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
+
+    # Display the resulting frame
+    cv2.imshow('frame',gray)
+    cv2.imshow('frame1', gray1)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# When everything done, release the capture
+cap.release()
+cv2.destroyAllWindows()

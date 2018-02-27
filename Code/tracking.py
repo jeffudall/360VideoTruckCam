@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Feb 18 23:40:12 2018
+Source: https://www.pyimagesearch.com/2016/01/25/real-time-panorama-and-image-stitching-with-opencv/
 
-@author: Etcyl
 """
 
 import cv2

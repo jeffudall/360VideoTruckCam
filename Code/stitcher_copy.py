@@ -2,6 +2,8 @@
 """
 Created on Thu Feb 22 19:39:00 2018
 
+Modified real-time stitching from: https://www.pyimagesearch.com/2016/01/25/real-time-panorama-and-image-stitching-with-opencv/
+
 @author: Etcyl
 """
 

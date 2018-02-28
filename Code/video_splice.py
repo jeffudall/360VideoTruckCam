@@ -10,24 +10,25 @@ from imutils.video import VideoStream
 import cv2
 import numpy as np
 
-H = np.matrix('0.7494203, 0.0063932, 118.9597; -0.156886, 0.9848, 2.9166; -0.000986577, 0.0002825271, 1')
-
 # initialize the video streams and allow them to warmup
 print("[INFO] starting cameras...")
 leftStream = VideoStream(0).start()
 rightStream = VideoStream(2).start()
-#second_right = VideoStream(2).start()
 
+# create constants and the "image" canvas
 height = 1200*2
 width = 1200*2
 size = height
 depth = width
 channels = 3
-image = np.zeros((height, width, 3), np.uint8)
 x_offset=0
 y_offset=50
 y_offset2=50
 x_offset2=600
+
+image = np.zeros((height, width, 3), np.uint8)
+
+# continuously loop over reading both video streams and stuff them into the canvas
 while True:
     imageB=leftStream.read()
     imageC=rightStream.read()
@@ -36,8 +37,9 @@ while True:
     cv2.imshow("Blank", image)
     key = cv2.waitKey(1) & 0xFF
     
-    if key==ord("q"):
+    if key==ord("q"): # if the user presses "q" while looking at the canvas, then quit
         break
+        
 print("[INFO] cleaning up...")
 cv2.destroyAllWindows()
 leftStream.stop()

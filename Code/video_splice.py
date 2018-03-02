@@ -34,7 +34,7 @@ while True:
     imageC=rightStream.read()
     image[y_offset:y_offset+imageB.shape[0], x_offset:x_offset+imageB.shape[1]] = imageB
     image[y_offset2:y_offset2+imageC.shape[0], x_offset2:x_offset2+imageC.shape[1]] = imageC   
-    cv2.imshow("Blank", image)
+    cv2.imshow("Canvas", image)
     key = cv2.waitKey(1) & 0xFF
     
     if key==ord("q"): # if the user presses "q" while looking at the canvas, then quit

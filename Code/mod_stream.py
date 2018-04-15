@@ -5,8 +5,8 @@ Created on Sun Apr 15 11:32:23 2018
 @author: etcyl
 """
 
-#Stream is the video stream, x_ and y_val are the canvas constants 
-def mod_stream_vals(stream, x_val, y_val): 
+#Stream is the video x_ and y_val are the canvas constants 
+def mod_stream_vals(x_val, y_val): 
     direction = [0, 0]
     direction[0] = x_val
     direction[1] = y_val

@@ -12,7 +12,7 @@ from keras import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.layers import Conv2D, MaxPooling2D
 
-shape = (32, 32, 3) #x_train.shape[1:], where x_train is from the CIFAR-10 dataset
+shape = (32, 32, 3)
 num_classes = 10
 
 def buildCNN():

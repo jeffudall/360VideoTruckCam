@@ -13,7 +13,7 @@ from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.layers import Conv2D, MaxPooling2D
 
 shape = (32, 32, 3)
-num_classes = 10
+num_classes = 2 #One class for vehicles, one for none in the image
 
 def buildCNN():
     model = Sequential()

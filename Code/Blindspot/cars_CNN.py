@@ -20,11 +20,11 @@ set_size = 32
 num_classes = 10 #Change this to 2 when y_test and y_train are made separately from the cifar10 labels
 (x_train, y_train), (x_test, y_test) = cifar10.load_data() #Datastructure for all of the images
 
-
 #Convert class vectors to binary class matrices
 y_train = keras.utils.to_categorical(y_train, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
 
+#More data filtering
 x_train = x_train.astype('float32')
 x_test = x_test.astype('float32')
 x_train /= 255
@@ -36,7 +36,6 @@ for i in range(32):
     y_test[i] = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     
 #Load and resize all of the images to be (32, 3)
-
 for i in range(set_size):
     #Set the training data
     img_name = str(i) + '.jpg'
@@ -51,13 +50,12 @@ for i in range(set_size):
     img = cv2.resize(img, (32, 32))
     x_test[i] = img
 
-
-cnn = build_cnn.buildCNN()
-
-
+cnn = build_cnn.buildCNN() #Create a CNN object as "cnn"
+#Train the network
 cnn.fit(x_train[0:set_size], y_train[0:set_size], batch_size=batch_size, epochs=epochs,
         validation_data=(x_test[0:set_size], y_test[0:set_size]), shuffle=True)
 
+#Get and print the test loss and test accuracy
 scores = cnn.evaluate(x_test[0:set_size], y_test[0:set_size], verbose=1)
 print('Test loss:', scores[0])
 print('Test accuracy:', scores[1])

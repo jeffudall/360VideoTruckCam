@@ -17,7 +17,6 @@ set_size = 32
 num_classes = 10 #Change this to 2 when y_test and y_train are made separately from the cifar10 labels
 (x_train, y_train), (x_test, y_test) = cifar10.load_data() #Datastructure for all of the images
 
-
 #Convert class vectors to binary class matrices
 y_train = keras.utils.to_categorical(y_train, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
@@ -45,10 +44,10 @@ for i in range(set_size):
     x_test[i] =
     y_test[i] = 
 
-
+#Make a CNN using the buildCNN() function
 cnn = build_cnn.buildCNN()
 
-
+#Train the CNN using the training and testing data
 cnn.fit(x_train[0:1000], y_train[0:1000], batch_size=batch_size, epochs=epochs,
                   validation_data=(x_test[0:32], y_test[0:32]), shuffle=True)
             scores = cnn.evaluate(x_test[0:32], y_test[0:32], verbose=1)

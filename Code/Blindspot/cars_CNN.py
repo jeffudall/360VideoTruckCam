@@ -20,9 +20,10 @@ set_size = 32
 #Load and resize all of the images to be (32, 3)
 """
 for i in range(set_size):
+    img_name = str(i) + '.jpg'
     random_test_val = random.randint(1, 32) #Get a random image to train on 
-    img = cv2.imread('1.jpg',3)
-    img = imutils.resize(img, width=32)
+    img = cv2.imread(img_name, 3)
+    img = imutils.resize(img, width = 32)
     x_test[i] = 
     x_train[i] = 
     y_test[i] = 

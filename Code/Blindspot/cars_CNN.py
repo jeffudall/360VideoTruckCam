@@ -27,7 +27,7 @@ x_test = x_test.astype('float32')
 x_train /= 255
 x_test /= 255
 
-#Load and resize all of the images to be (32, 3)
+#Create, resize ( to be 32, 3), and save all of the images
 """
 for i in range(set_size):
     img_name = str(i) + '.jpg' #Current for-loop value of i plus a .jpg label creates the (saved) image name

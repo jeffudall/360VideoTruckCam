@@ -15,7 +15,7 @@ import random
 
 set_size = 32
 
-(x_train, y_train), (x_test, y_test) = cifar10.load_data() #Load dataset to store the new car images
+(x_train, y_train), (x_test, y_test) = cifar10.load_data() #Datastructure for all of the images
 
 #Load and resize all of the images to be (32, 3)
 """
@@ -23,16 +23,16 @@ for i in range(set_size):
     img_name = str(i) + '.jpg'
     random_test_val = random.randint(1, 32) #Get a random image to train on 
     img = cv2.imread(img_name, 3)
-    img = imutils.resize(img, width = 32)
-    x_test[i] = 
-    x_train[i] = 
-    y_test[i] = 
+    img = imutils.resize(img, width = 32, height = 32)
+    x_train[i] =  
     y_train[i] = 
+    
+    img_name = str(random_test_val) + '.jpg'
+    img = cv2.imread(img_name, 3)
+    img = imutils.resize(img, width = 32, height = 32)
+    x_test[i] =
+    y_test[i] = 
 """
-
-#(x_train, y_train), (x_test, y_test) = #Set the training and testing, in this case images of cars and image of the road
-
-
 cnn = build_cnn.buildCNN()
 
 """

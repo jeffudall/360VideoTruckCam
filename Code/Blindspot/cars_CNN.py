@@ -24,7 +24,6 @@ num_classes = 10 #Change this to 2 when y_test and y_train are made separately f
 y_train = keras.utils.to_categorical(y_train, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
 
-#More data filtering
 x_train = x_train.astype('float32')
 x_test = x_test.astype('float32')
 x_train /= 255
@@ -44,18 +43,15 @@ for i in range(set_size):
     x_train[i] =  img
     
     #Set the test data
-    random_test_val = random.randint(1, 32) #Get a random image to train on 
+    random_test_val = random.randint(0, 32) #Get a random image to train on 
     img_name = str(random_test_val) + '.jpg'
     img = cv2.imread(img_name, 3)
     img = cv2.resize(img, (32, 32))
     x_test[i] = img
 
-cnn = build_cnn.buildCNN() #Create a CNN object as "cnn"
-#Train the network
+cnn = build_cnn.buildCNN()
 cnn.fit(x_train[0:set_size], y_train[0:set_size], batch_size=batch_size, epochs=epochs,
         validation_data=(x_test[0:set_size], y_test[0:set_size]), shuffle=True)
 
-#Get and print the test loss and test accuracy
 scores = cnn.evaluate(x_test[0:set_size], y_test[0:set_size], verbose=1)
-print('Test loss:', scores[0])
 print('Test accuracy:', scores[1])

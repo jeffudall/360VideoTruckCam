@@ -16,7 +16,7 @@ class matchers:
 	def match(self, i1, i2, direction=None):
 		imageSet1 = self.getSURFFeatures(i1)
 		imageSet2 = self.getSURFFeatures(i2)
-		print "Direction : ", direction
+		print ("Direction : ", direction)
 		matches = self.flann.knnMatch(
 			imageSet2['des'],
 			imageSet1['des'],

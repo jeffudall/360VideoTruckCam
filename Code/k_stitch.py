@@ -135,18 +135,21 @@ class Stitch:
 
 
 if __name__ == '__main__':
-	try:
+	"""try:
 		args = sys.argv[1]
 	except:
 		args = "txtlists/files1.txt"
 	finally:
 		print "Parameters : ", args
+	"""
 	s = Stitch(args)
 	s.leftshift()
 	# s.showImage('left')
 	s.rightshift()
 	print "done"
-	cv2.imwrite("test12.jpg", s.leftImage)
-	print "image written"
+	cv2.imshow("leftImage", s.leftImage)
+	cv2.imshow("rightImage", s.rightImage)
+	#cv2.imwrite("test12.jpg", s.leftImage)
+	#print "image written"
+	cv2.waitKey(0)
 	cv2.destroyAllWindows()
-	

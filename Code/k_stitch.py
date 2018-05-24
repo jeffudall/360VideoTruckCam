@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu May 24 02:55:06 2018
-
 @author: Etcyl
-"""
 
-"""
 Modified Stitch class from source: https://github.com/kushalvyas/Python-Multiple-Image-Stitching
+Handles an input list of images, from left to right, to construct their panorama. 
 """
 
 import numpy as np

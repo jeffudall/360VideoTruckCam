@@ -7,10 +7,12 @@ Version 2.0
 
 @author: Etcyl
 """
-
-import build_cnn
-import keras
+#from sklearn.model_selection import train_test_split
+#from keras.preprocessing.image import img_to_array
+#from sklearn.preprocessing import LabelBinarizer
 from keras.datasets import cifar10
+import keras
+import build_cnn
 import random 
 import cv2
 
@@ -30,11 +32,13 @@ x_train /= 255
 x_test /= 255
 
 #Adjust the dataset to be in the category [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+#This should be done with LabelBinarizer()
 for i in range(32):
     y_train[i] = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     y_test[i] = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     
 #Load and resize all of the images to be (32, 3)
+#Use img_to_array() for this after resizing, then append to the training data list
 for i in range(set_size):
     #Set the training data
     img_name = str(i) + '.jpg'

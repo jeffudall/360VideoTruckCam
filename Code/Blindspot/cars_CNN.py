@@ -16,10 +16,10 @@ import cv2
 
 IMAGE_WIDTH = 32
 IMAGE_HEIGHT = 32
-epochs = 5
-batch_size = 32
-set_size = 32
-num_classes = 2 #Change this to 2 when y_test and y_train are made separately from the cifar10 labels
+EPOCHS = 5
+BATCH_SIZE = 32
+SET_SIZE = 32
+NUM_CLASSES = 2 #Change this to 2 when y_test and y_train are made separately from the cifar10 labels
 
 #Make a list of training data and class labels
 data = []
@@ -65,10 +65,34 @@ aug = ImageDataGenerator(rotation_range = 25, width_shift_range = 0.1,
     horizontal_flip = True, fill_mode = "nearest")
 
 
-cnn = build_cnn.buildCNN()
-cnn.fit(x_train[0:set_size], y_train[0:set_size], batch_size=batch_size, epochs=epochs,
-        validation_data=(x_test[0:set_size], y_test[0:set_size]), shuffle=True)
 
-scores = cnn.evaluate(x_test[0:set_size], y_test[0:set_size], verbose=1)
-print('Test accuracy:', scores[1])
+cnn = build_cnn.buildCNN()
+cnn.fit_generator(aug.flow(trainX, trainY, batch_size = BATCH_SIZE),
+                  validation_data = (testX, testY),
+                  steps_per_epoch = len(trainX) // BATCH_SIZE
+                  epochs = EPOCHS, verbose = 1)
+
+#Save the model to disk
+print("Serializing network. . . ")
+cnn.save(args["cnn"])
+
+#Save the label binarizer to disk
+print("Serializing label binarizer. . . ")
+f = open(args["labelbin"], "wb")
+f.write(pickle.dumps(lb))
+f.close()
+
+#Plot the training loss and accuracy
+plt.style.use("ggplot")
+plt.figure()
+N = EPOCHS
+plt.plot(np.arange(0, N), H.history["loss"], label="train_loss")
+plt.plot(np.arange(0, N), H.history["val_loss"], label="val_loss")
+plt.plot(np.arange(0, N), H.history["acc"], label="train_acc")
+plt.plot(np.arange(0, N), H.history["val_acc"], label="val_acc")
+plt.title("Training Loss and Accuracy")
+plt.xlabel("Epoch #")
+plt.ylabel("Loss/Accuracy")
+plt.legend(loc="upper left")
+plt.savefig(args["plot"])
 """

@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat May 19 22:20:55 2018
+
 Using a Keras CNN (Convolutional Neural Network) to identify cars in the image versus no cars in the image.
 Version 2.0
+
+Uses modified source code: https://www.pyimagesearch.com/2018/04/16/keras-and-convolutional-neural-networks-cnns/
 @author: Etcyl
 """
 # set the matplotlib backend so figures can be saved in the background

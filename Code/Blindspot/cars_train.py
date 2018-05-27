@@ -3,7 +3,7 @@
 Created on Sat May 19 22:20:55 2018
 
 Using a Keras CNN (Convolutional Neural Network) to identify cars, trucks, and road in the image.
-Version 2.0
+Version 3.0
 
 Uses modified source code: https://www.pyimagesearch.com/2018/04/16/keras-and-convolutional-neural-networks-cnns/
 @author: Etcyl
@@ -23,7 +23,6 @@ from pyimagesearch.smallervggnet import SmallerVGGNet
 #import matplotlib.pyplot as plt
 from imutils import paths
 import numpy as np
-import argparse
 import random
 import pickle
 import cv2

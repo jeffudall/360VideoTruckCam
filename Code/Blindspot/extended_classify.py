@@ -17,6 +17,7 @@ from keras.models import load_model
 import numpy as np
 import imutils
 import pickle
+import random
 import cv2
 
 # load the trained convolutional neural network and the label
@@ -24,7 +25,7 @@ import cv2
 print("[INFO] loading network...")
 model = load_model("model")
 lb = pickle.loads(open("labelbin", "rb").read())
-#BEGIN FOR-LOOP
+
 #Load directory images
 # initialize the data and labels
 data = []
@@ -35,9 +36,18 @@ print("[INFO] loading images...")
 imagePaths = sorted(list(paths.list_images("verification"))) #"verification" directory contains folders for class testing data
 random.seed(42)
 random.shuffle(imagePaths)
-#Pre-process for classification
-#Classify the current image in loop
-#Display the image, wait 500 ms or 1 sec
+#BEGIN FOR-LOOP
+# loop over the input images
+for imagePath in imagePaths:
+    #load the image, pre-process it, and store it in the data list
+    image = cv2.imread(imagePath)
+    # pre-process the image for classification
+    image = cv2.resize(image, (96, 96))
+    image = image.astype("float") / 255.0
+    image = img_to_array(image)
+    image = np.expand_dims(image, axis=0)
+    #Classify the current image in loop
+    #Display the image, wait 500 ms or 1 sec
 #END FOR-LOOP
 
 """

@@ -15,6 +15,7 @@ https://www.pyimagesearch.com/2018/04/16/keras-and-convolutional-neural-networks
 from keras.preprocessing.image import img_to_array
 from keras.models import load_model
 import numpy as np
+from imutils import paths
 import imutils
 import pickle
 import random

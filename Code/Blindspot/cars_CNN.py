@@ -88,8 +88,6 @@ aug = ImageDataGenerator(rotation_range = 25, width_shift_range = 0.1,
     height_shift_range = 0.1, shear_range = 0.2, zoom_range = 0.2,
     horizontal_flip = True, fill_mode = "nearest")
 
-
-
 cnn = build_cnn.buildCNN()
 H = cnn.fit_generator(aug.flow(trainX, trainY, batch_size = BATCH_SIZE),
                       validation_data = (testX, testY),

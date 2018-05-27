@@ -28,20 +28,6 @@ import pickle
 import cv2
 import os
 
-"""
-# construct the argument parse and parse the arguments
-ap = argparse.ArgumentParser()
-ap.add_argument("-d", "--dataset", required=True,
-	help="path to input dataset (i.e., directory of images)")
-ap.add_argument("-m", "--model", required=True,
-	help="path to output model")
-ap.add_argument("-l", "--labelbin", required=True,
-	help="path to output label binarizer")
-ap.add_argument("-p", "--plot", type=str, default="plot.png",
-	help="path to output accuracy/loss plot")
-args = vars(ap.parse_args())
-"""
-
 # initialize the number of epochs to train for, initial learning rate,
 # batch size, and image dimensions
 EPOCHS = 100

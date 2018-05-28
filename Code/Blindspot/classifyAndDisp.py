@@ -5,6 +5,8 @@ Created on Mon May 28 01:52:47 2018
 Function for classifying an image, given a model, the label binarizer, and the
 class name (fn). 
 
+Uses modified source code: https://www.pyimagesearch.com/2018/04/16/keras-and-convolutional-neural-networks-cnns/
+
 @author: Etcyl
 """
 # import the necessary packages

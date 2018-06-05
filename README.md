@@ -3,4 +3,6 @@
 
 For a summary of our project results, please see our Project Poster under the Wiki.
 
+360 camera integration results: https://www.youtube.com/watch?v=mYVe1XR7Yx4
+
 For more information, please see our Product Design Specification (PDS).

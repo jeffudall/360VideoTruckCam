@@ -24,13 +24,10 @@ p1 = (int(bbox[0]), int(bbox[1]))
 p2 = (int(bbox[0] + bbox[2]), int(bbox[1] + bbox[3]))
 
 #load the camera stream (only 1 camera for this demo, but more could be used)
-#output the camera stream to the user
 cam = VideoStream(0).start() 
 time.sleep(2) #Wait 2 seconds for the cam to warm up
 
 while True:
-    #video = cv2.VideoCapture(0)
-    #ok, frame = video.read()
     img = cam.read()
     label = blindspotDetect(img, model, lb)
     if label == "truck" or label == "car":

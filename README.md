@@ -3,8 +3,8 @@
 
 For a summary of our project results, please see our Project Poster under the Wiki.
 
-360 camera integration results: https://www.youtube.com/watch?v=mYVe1XR7Yx4
+360 camera integration video results: https://www.youtube.com/watch?v=mYVe1XR7Yx4
 
-Blindspot object classifier software results: https://youtu.be/cP4-mAQ5FVQ
+Blindspot object classifier software video results: https://youtu.be/UPeJM4NaUxc
 
 For more information, please see our Product Design Specification (PDS).
